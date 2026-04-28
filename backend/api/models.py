@@ -6,6 +6,7 @@ class Course(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     duration = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='courses/', blank=True, null=True)
 
     def __str__(self):
         return self.title

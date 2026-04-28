@@ -1,33 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <style>
-        body{
-            font-family: Arial;
-            background:#f5f5f5;
-            padding:20px;
-        }
-        .card{
-            background:white;
-            padding:15px;
-            margin:10px 0;
-            border-radius:8px;
-            box-shadow:0 2px 5px rgba(0,0,0,0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <div class="dashboard-container">
+        <h1>📚 User Dashboard</h1>
 
-<h1>User Dashboard</h1>
-
-{% for course in courses %}
-<div class="card">
-    <h2>{{ course.title }}</h2>
-    <p>{{ course.description }}</p>
-    <strong>₹{{ course.price }}</strong>
-</div>
-{% endfor %}
-
+        <div class="courses-grid">
+            {% for course in courses %}
+                <a href="{% url 'course_detail' course.id %}" class="card-link">
+                    <div class="card">
+                        {% if course.image %}
+                            <img src="{{ course.image.url }}" alt="{{ course.title }}" class="course-image">
+                        {% else %}
+                            <div class="course-image-placeholder">No Image</div>
+                        {% endif %}
+                        
+                        <div class="card-content">
+                            <h2>{{ course.title }}</h2>
+                            <span class="duration-badge">⏱️ {{ course.duration }}</span>
+                            <strong>₹{{ course.price }}</strong>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/course_detail.css' %}">
+</head>
+<body>
+    <h1 class="header">{{ course.title }}</h1>
+
+    <div class="container">
+        {% if course.image %}
+            <img src="{{ course.image.url }}" width="300">
+        {% else %}
+            <p>No Image Available</p>
+        {% endif %}
+
+        <div>
+            <h3>Duration: {{ course.duration }}</h3>
+            <h3>Price: ₹{{ course.price }}</h3>
+            <p>{{ course.description }}</p>
+            
+        </div>
+    </div>
+</body>
+</html>
