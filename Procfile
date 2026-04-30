@@ -1,1 +1,1 @@
-web: gunicorn student-course-app.wsgi
+web: gunicorn backend.wsgi
