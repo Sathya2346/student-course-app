@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+a{
+    text-decoration: none;
+}
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -102,7 +104,15 @@ h1 {
     font-size: 0.85em;
     margin-top: 10px;
 }
-
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.card-link{
+    text-decoration: none;
+    color: inherit;
+}
 /* Responsive Design */
 @media (max-width: 600px) {
     .card {
