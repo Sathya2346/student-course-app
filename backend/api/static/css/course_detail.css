@@ -4,6 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
 .header{
     margin: 100px 0px 50px 0px;
     text-align: center;
